@@ -20,11 +20,11 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     @user = User.find_by(username: params[:username])
-
+    binding.pry
     if @user
       redirect "/failure"
     else
-      binding.pry
+      
         if params[:username] != "" && params[:password] != ""
           User.create(username: params[:username], password: params[:password])
 
