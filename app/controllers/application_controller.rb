@@ -19,11 +19,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    @user = User.find_by(username: params[:username])
-    binding.pry
-    if @user
-      redirect "/failure"
-    else
+    
+  
 
         if params[:username] != "" && params[:password] != ""
           User.create(username: params[:username], password: params[:password])
@@ -32,7 +29,7 @@ class ApplicationController < Sinatra::Base
       else
         redirect "/failure"
       end
-    end
+    
   end
 
   get '/account' do
