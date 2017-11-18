@@ -1,6 +1,7 @@
 require "./config/environment"
 require "./app/models/user"
 require "pry"
+
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -24,7 +25,7 @@ class ApplicationController < Sinatra::Base
       redirect "/failure"
     else
         if params[:username] != "" && params[:password] != ""
-          
+
           @user = User.create(username: params[:username], password: params[:password])
           redirect "/login"
       else
