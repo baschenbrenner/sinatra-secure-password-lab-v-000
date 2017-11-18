@@ -42,7 +42,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/login" do
-binding.pry
+
       if params[:username] != "" && params[:password] != ""
         @user = User.find_by(username: params[:username])
 
