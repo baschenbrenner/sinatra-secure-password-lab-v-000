@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     @user = User.find_by(username: params[:username])
-    
+
     if @user
       redirect "/failure"
     else
